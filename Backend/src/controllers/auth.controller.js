@@ -85,7 +85,7 @@ async function logoutUser(req, res) {
 }
 
 async function registerfoodPartner(req, res) {
-  const { name, email, password } = req.body;
+  const { name, businessName, email, phone, address, password } = req.body;
 
   const isfoodPartnerAlreadyExists = await foodPartner.findOne({
     email,
@@ -101,7 +101,10 @@ async function registerfoodPartner(req, res) {
 
   const foodpartner = await foodPartner.create({
     name,
+    businessName,
     email,
+    phone,
+    address,
     password: hashedPassword,
   });
 
@@ -119,7 +122,10 @@ async function registerfoodPartner(req, res) {
     foodPartner: {
       _id: foodpartner._id,
       email: foodpartner.email,
+      businessName: foodpartner.businessName,
       name: foodpartner.name,
+      phone: foodpartner.phone,
+      address: foodpartner.address,
     },
   });
 }
@@ -154,6 +160,10 @@ async function loginfoodPartner(req, res) {
       _id: foodpartner._id,
       email: foodpartner.email,
       name: foodpartner.name,
+      businessName: foodpartner.businessName,
+      name: foodpartner.name,
+      phone: foodpartner.phone,
+      address: foodpartner.address,
     },
   });
 }

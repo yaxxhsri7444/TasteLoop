@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/ui.css';
 
 export default function PartnerRegister() {
   return (

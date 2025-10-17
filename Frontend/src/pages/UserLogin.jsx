@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/ui.css';
 
 export default function UserLogin() {
   return (
@@ -29,7 +30,11 @@ export default function UserLogin() {
 
             <div className="actions">
               <button className="button" type="submit">Sign in</button>
-              <div className="helper">New here? <a className="link" href="/user/register">Create an account</a></div>
+              <div className="helper">
+                <div>New here?</div>
+                <div><a className="link" href="/user/register">Register as normal user</a></div>
+                <div><a className="link" href="/food-partner/register">Register as food partner</a></div>
+              </div>
             </div>
           </form>
 
