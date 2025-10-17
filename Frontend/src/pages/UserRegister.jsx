@@ -1,16 +1,35 @@
 import React from "react";
 import "../styles/ui.css";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function UserRegister() {
-    const handleSubmit = (e) => {
+    const naviagte = useNavigate();
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log('name:', name, email, password)
+
+        console.log("name:", name, email, password);
+
+        try {
+            const response = await axios.post("http://localhost:3000/api/auth/register", {
+                name,
+                email,
+                password,
+            });
+
+            console.log("User registered successfully:", response.data);
+            alert("Registration successful!");
+            naviagte("/")
+        } catch (error) {
+            console.error("Registration failed:", error.response?.data || error.message);
+            alert("Something went wrong while registering.");
+        }
     };
+
     return (
         <div className="app-shell">
             <div className="card">
@@ -23,7 +42,8 @@ export default function UserRegister() {
                     <h1 className="card-title">Create your account</h1>
                     <p className="card-subtitle">Join as a user to discover and order great food.</p>
 
-                    <form className="form" onSubmit={(e) => e.preventDefault()} noValidate>
+                    {/* ✅ Corrected here */}
+                    <form className="form" onSubmit={handleSubmit} noValidate>
                         <div className="field">
                             <label className="label" htmlFor="name">
                                 Full name
