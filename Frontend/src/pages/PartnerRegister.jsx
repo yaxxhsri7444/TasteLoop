@@ -11,18 +11,18 @@ export default function PartnerRegister() {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const phone = e.target.phone.value;
+        const businessName = e.target.businessName.value;
+        const address = e.target.address.value;
 
         console.log("name:", name, email, password);
 
         try {
-            const response = await axios.post("http://localhost:3000/api/auth/partner/register", {
-                name,
-                businessName,
-                phone,
-                address,
-                email,
-                password,
-            });
+            const response = await axios.post(
+                "http://localhost:3000/api/auth/partner/register",
+                { name, businessName, phone, address, email, password },
+                { withCredentials: true }
+            );
 
             console.log("User registered successfully:", response.data);
             alert("Registration successful!");

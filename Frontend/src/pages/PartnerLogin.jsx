@@ -14,10 +14,11 @@ export default function PartnerLogin() {
         console.log(email, password);
 
         try {
-            const response = await axios.post("http://localhost:3000/api/auth/partner/login", {
-                email,
-                password,
-            });
+            const response = await axios.post(
+                "http://localhost:3000/api/auth/partner/login",
+                { email, password },
+                { withCredentials: true }
+            );
 
             console.log("User Login successfully:", response.data);
             alert("Login successful!");

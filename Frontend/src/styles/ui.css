@@ -174,3 +174,65 @@ body {
   color: var(--muted);
   font-size: var(--text-sm);
 }
+
+/* Profile page additions */
+.profile-header {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+.avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: var(--primary-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.pill-row {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.pill {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: transparent;
+}
+.stats {
+  display: flex;
+  gap: var(--space-6);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.stat-value {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+.video-tile {
+  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+  height: 80px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  border: 1px dashed var(--border);
+}

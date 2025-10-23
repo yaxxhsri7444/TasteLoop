@@ -15,11 +15,11 @@ export default function UserRegister() {
         console.log("name:", name, email, password);
 
         try {
-            const response = await axios.post("http://localhost:3000/api/auth/register", {
-                name,
-                email,
-                password,
-            });
+            const response = await axios.post(
+                "http://localhost:3000/api/auth/register",
+                { name, email, password },
+                { withCredentials: true }
+            );
 
             console.log("User registered successfully:", response.data);
             alert("Registration successful!");

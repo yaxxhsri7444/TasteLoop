@@ -1,0 +1,92 @@
+/* Mobile-first styles for Create Food form */
+.create-food {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .create-food {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--space-8);
+  }
+}
+
+.create-food-form {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .create-food-form {
+    padding: var(--space-6);
+  }
+}
+
+.video-preview {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--input-bg);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-preview video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.video-preview.dragging {
+  border-color: var(--primary);
+  background: var(--input-bg);
+}
+
+.video-input-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.video-input-label:hover {
+  opacity: 1;
+}
+
+.video-preview:not(:has(video)) .video-input-label {
+  opacity: 1;
+  background: transparent;
+  color: var(--muted);
+}
+
+.description-input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .form-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

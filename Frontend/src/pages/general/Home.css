@@ -1,0 +1,155 @@
+/* 🔳 Full-page scroll container */
+.reels-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: #000;
+  scrollbar-width: none; /* Firefox */
+}
+.reels-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* 🎥 Each reel fills the screen perfectly */
+.reel {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+}
+
+/* 🎬 Video centered and bounded */
+.reel-video {
+  width: min(100%, 420px);
+  max-height: 100vh;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 16px;
+  background: #000;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reel-video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+/* ✨ Overlay container */
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 16px;
+  pointer-events: none;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 👤 Meta info (name, caption) */
+.reel-meta {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  max-width: 70%;
+  pointer-events: none;
+}
+
+.reel-meta .username {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.reel-meta .caption {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* ❤️ Action buttons (like, share, etc.) */
+.reel-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  pointer-events: auto;
+}
+
+.reel-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.reel-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.reel-btn:active {
+  transform: scale(0.95);
+}
+
+.reel-visit-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(37, 99, 235, 0.9); /* Instagram blue-ish */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.25s ease;
+}
+
+.reel-visit-btn:hover {
+  background: rgba(37, 99, 235, 1);
+  transform: scale(1.05);
+}
+
+
+/* 📱 Responsive adjustments */
+@media (max-width: 480px) {
+  .reel-video {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .reel-overlay {
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .reel-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+}

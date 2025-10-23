@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const authroutes = require("./routes/auth.routes");
 const foodroutes = require("./routes/food.routes");
+const partnerroutes = require("./routes/foodPartner.routes");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
@@ -18,11 +19,8 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
-
 app.use("/api/auth", authroutes);
 app.use("/api/food", foodroutes);
+app.use("/api/partner", partnerroutes);
 
 module.exports = app;

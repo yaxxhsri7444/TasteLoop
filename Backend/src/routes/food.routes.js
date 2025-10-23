@@ -15,10 +15,6 @@ router.post(
   food.createFood
 );
 
-// router.get(
-//   "/get",
-//   authMiddleware.authUsermiddle,
-//   food.getFooditem
-// );
+router.get("/get", authMiddleware.authUsermiddle, food.getFooditem);
 
 module.exports = router;

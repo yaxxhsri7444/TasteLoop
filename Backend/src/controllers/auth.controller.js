@@ -3,6 +3,14 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const foodPartner = require("../models/foodpartner.model");
 
+const COOKIE_OPTIONS = {
+  httpOnly: true,
+  sameSite: "none",
+  secure: true,
+  path: "/",
+  maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+};
+
 async function registerUser(req, res) {
   const { name, email, password } = req.body;
 
@@ -31,7 +39,7 @@ async function registerUser(req, res) {
     process.env.JWT_TOKEN
   );
 
-  res.cookie("token", token);
+  res.cookie("token", token, COOKIE_OPTIONS);
 
   res.status(201).json({
     message: "user registered succesfully",
@@ -65,7 +73,7 @@ async function loginUser(req, res) {
     process.env.JWT_TOKEN
   );
 
-  res.cookie("token", token);
+  res.cookie("token", token, COOKIE_OPTIONS);
 
   res.status(201).json({
     message: "user logged in succesfully",
@@ -78,10 +86,10 @@ async function loginUser(req, res) {
 }
 
 async function logoutUser(req, res) {
-  res.clearCookie("token"),
-    res.status(200).json({
-      message: "User logged out sucessfully",
-    });
+  res.clearCookie("token", { sameSite: "none", secure: true, path: "/" });
+  res.status(200).json({
+    message: "User logged out sucessfully",
+  });
 }
 
 async function registerfoodPartner(req, res) {
@@ -115,7 +123,7 @@ async function registerfoodPartner(req, res) {
     process.env.JWT_TOKEN
   );
 
-  res.cookie("token", token);
+  res.cookie("token", token, COOKIE_OPTIONS);
 
   res.status(201).json({
     message: "foodPartner registered succesfully",
@@ -152,7 +160,7 @@ async function loginfoodPartner(req, res) {
     process.env.JWT_TOKEN
   );
 
-  res.cookie("token", token);
+  res.cookie("token", token, COOKIE_OPTIONS);
 
   res.status(201).json({
     message: "foodPartner logged in succesfully",
@@ -169,10 +177,10 @@ async function loginfoodPartner(req, res) {
 }
 
 async function logoutfoodPartner(req, res) {
-  res.clearCookie("token"),
-    res.status(200).json({
-      message: "food partner logged out sucessfully",
-    });
+  res.clearCookie("token", { sameSite: "none", secure: true, path: "/" });
+  res.status(200).json({
+    message: "food partner logged out sucessfully",
+  });
 }
 
 module.exports = {
