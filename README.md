@@ -1,32 +1,48 @@
-# 🍴 TasteLoop
+<h1 align="center">🍴 TasteLoop</h1>
 
-**TasteLoop** is a modern food-sharing platform where food partners can upload short food-related videos, and users can explore, like, and save their favorites — similar to Instagram Reels but focused entirely on food content.
+<p align="center">
+  <b>A modern food-sharing social platform where food lovers and creators meet!</b><br/>
+  Upload, explore, like & save short food videos — just like Instagram Reels, but dedicated entirely to food! 😋
+</p>
 
----
-
-## 🚀 Features
-
-- 🎥 Upload short food videos (MP4/MOV)
-- ❤️ Like, save, and comment on food reels
-- 👩‍🍳 Food partner dashboard to manage uploads
-- 🧑‍💻 User authentication (Login / Signup)
-- 💾 Saved videos page for later viewing
-- 📱 Responsive mobile-first design
-- 🔥 Smooth autoplay video feed using Intersection Observer
+<p align="center">
+  <img src="https://img.shields.io/badge/Frontend-React.js-blue?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge&logo=node.js" />
+  <img src="https://img.shields.io/badge/Database-MongoDB-darkgreen?style=for-the-badge&logo=mongodb" />
+  <img src="https://img.shields.io/badge/Deployed%20on-Localhost-orange?style=for-the-badge" />
+</p>
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Overview
 
-**Frontend:** React.js, Axios, React Router, CSS  
-**Backend:** Node.js, Express.js, MongoDB  
-**Media Storage:** ImageKit.io  
-**Auth:** JWT (JSON Web Tokens)  
-**Styling:** Custom CSS (mobile-first design)
+**TasteLoop** is a full-stack food reel platform that lets users:
+- 👨‍🍳 **Upload food videos**
+- ❤️ **Like and save favorite reels**
+- 💬 **View and comment** on others’ posts
+- 🧑‍💻 **Login/Register** with authentication
+- 📱 **Enjoy a responsive design** that looks great on any device
+
+Whether you’re a home chef or a foodie explorer — TasteLoop brings everyone to one table! 🍽️
+
+---
+
+## 🖥️ Tech Stack
+
+| Category | Technologies |
+|-----------|---------------|
+| **Frontend** | React.js, Axios, React Router, CSS |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB |
+| **Media Hosting** | ImageKit.io |
+| **Authentication** | JWT (JSON Web Token) |
+| **Styling** | Custom CSS (Responsive Design) |
 
 ---
 
 ## 📁 Folder Structure
+
+
 ```
 TasteLoop/
 ├── Backend/
