@@ -8,10 +8,7 @@ const imagekit = new ImageKit({
 });
 
 async function uploadFile(file, fileName) {
-  // Accept either:
-  // - a multer file object ({ buffer, mimetype, originalname, ... })
-  // - a Buffer
-  // - a base64 / data URI string
+
   try {
     let uploadValue;
 

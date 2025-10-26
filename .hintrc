@@ -7,7 +7,9 @@
       "default",
       {
         "ignore": [
-          "backdrop-filter"
+          "backdrop-filter",
+          "overscroll-behavior-y",
+          "-webkit-overflow-scrolling"
         ]
       }
     ]

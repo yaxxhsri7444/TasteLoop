@@ -4,7 +4,7 @@ const foodSchema = new mongoose.Schema({
   name: { type: String, require: true },
   video: { type: String, require: true },
   discription: { type: String },
-  foodPartner: { type: mongoose.Schema.Types.ObjectId, ref: "foodpartner" },
+  foodPartner: { type: mongoose.Schema.Types.ObjectId, ref: "foodPartner" },
 });
 
 const food = mongoose.model("food", foodSchema);

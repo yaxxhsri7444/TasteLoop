@@ -15,13 +15,12 @@ const Profile = () => {
         .get(`http://localhost:3000/api/partner/${id}`, {withCredentials: true})
         .then((response) => {
             setProfile(response.data.foodPartner);
-            // ensure we always set an array for videos to avoid `.map` on undefined
             const vids = response?.data?.foodPartner?.videos;
-            setVideo(Array.isArray(vids) ? vids : []);
+            // use the correct setter name and ensure an array
+            setVideos(Array.isArray(vids) ? vids : []);
         })
         .catch((error) => {
             console.error("Error fetching profile data:", error);
-            // keep videos as an empty array on error
             setVideos([]);
         });
     }, [id]);
@@ -54,26 +53,7 @@ const Profile = () => {
                     <h2 className="profile-name">{profile.name}</h2>
                     <p className="profile-username">{profile.businessName}</p>
 
-                    <div className="profile-buttons">
-                        <button className="btn-primary">Follow</button>
-                        <button className="btn-outline">Message</button>
-                    </div>
-
-                    <div className="profile-stats">
-                        <div>
-                            <span className="stat-value">43</span>
-                            <span className="stat-label">Meals</span>
-                        </div>
-                        <div>
-                            <span className="stat-value">15K</span>
-                            <span className="stat-label">Customers</span>
-                        </div>
-                        <div>
-                            <span className="stat-value">4.8★</span>
-                            <span className="stat-label">Rating</span>
-                        </div>
-                    </div>
-
+                    
                     <div className="profile-bio">
                         <p>
                             Business: <strong>{profile.businessName}</strong>
@@ -90,9 +70,10 @@ const Profile = () => {
             <div className="divider"></div>
 
             <div className="profile-grid" aria-label="videos">
-                {(Array.isArray(videos) ? video : []).map((v, i) => (
-                    <div key={v?.id ?? i} className="profile-video">
-                        <video src={v?.videoUrl || ""} controls />
+                {(Array.isArray(videos) ? videos : []).map((v, i) => (
+                    <div key={v?._id ?? i} className="profile-video">
+                        {/* use `video` (DB field) or fallback to videoUrl */}
+                        <video src={v?.video || v?.videoUrl || ""} controls />
                     </div>
                 ))}
             </div>

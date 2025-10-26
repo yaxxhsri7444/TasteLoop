@@ -1,34 +1,86 @@
-/* Mobile-first styles for Create Food form */
-.create-food {
-  width: 100%;
-  max-width: 100%;
-  padding: var(--space-4);
+:root {
+  --bg: #f7f7f9;
+  --card-bg: #ffffff;
+  --text: #101114;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-contrast: #ffffff;
+  --input-bg: #ffffff;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
 }
 
-@media (min-width: 640px) {
-  .create-food {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: var(--space-8);
-  }
+/* Layout */
+.create-food {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
 }
 
 .create-food-form {
   background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: var(--space-4);
+  padding: var(--space-6);
+  width: 100%;
+  max-width: 600px;
 }
 
-@media (min-width: 640px) {
-  .create-food-form {
-    padding: var(--space-6);
-  }
+.card-title {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text);
+  font-weight: 700;
+  margin-bottom: var(--space-6);
 }
 
+/* Inputs & Fields */
+.field {
+  margin-bottom: var(--space-4);
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  transition: 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.description-input {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Video Preview */
 .video-preview {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   background: var(--input-bg);
   border: 2px dashed var(--border);
   border-radius: var(--radius);
@@ -36,57 +88,102 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .video-preview video {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.video-preview.dragging {
-  border-color: var(--primary);
-  background: var(--input-bg);
+.placeholder {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .video-input-label {
-  position: absolute;
-  inset: 0;
+  /* position: absolute; */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  flex-direction:column;
+  /* right: 0; */
+  /* background: var(--primary); */
+  color: var(--primary-contrast);
+  padding: 0.5rem 1rem;
+  border-top-left-radius: var(--radius);
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  font-weight: 600;
 }
 
-.video-input-label:hover {
-  opacity: 1;
-}
-
-.video-preview:not(:has(video)) .video-input-label {
-  opacity: 1;
-  background: transparent;
-  color: var(--muted);
-}
-
-.description-input {
-  min-height: 120px;
-  resize: vertical;
-}
-
+/* Buttons */
 .form-actions {
-  display: grid;
+  display: flex;
   gap: var(--space-3);
   margin-top: var(--space-6);
 }
 
-@media (min-width: 640px) {
-  .form-actions {
-    grid-template-columns: repeat(2, 1fr);
+.button {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.button.secondary {
+  background: var(--border);
+  color: var(--text);
+}
+
+.button.secondary:hover {
+  background: #dcdfe5;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button:not(.secondary) {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+.button:not(.secondary):hover {
+  background: var(--primary-hover);
+}
+
+/* Messages */
+.helper {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: var(--space-3);
+}
+
+.helper.error {
+  color: #dc2626;
+}
+
+.helper.success {
+  color: #16a34a;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .create-food-form {
+    padding: var(--space-4);
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
   }
 }
