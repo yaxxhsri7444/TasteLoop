@@ -64,6 +64,62 @@ TasteLoop/
 
 ---
 
+## ⚙️ Backend Setup
+```
+cd Backend
+npm install
+npm run dev
+
+```
+### Create a .env file inside /Backend:
+
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+IMAGEKIT_PUBLIC_KEY=your_imagekit_public_key
+IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
+IMAGEKIT_URL_ENDPOINT=your_imagekit_url_endpoint
+```
+---
+
+## 💻 Frontend Setup
+```
+cd ../Frontend
+npm install
+npm run dev
+```
+
+### Then open:
+
+- 👉 http://localhost:5173/ **(Frontend)**
+- 👉 http://localhost:3000/ **(Backend)**
+
+---
+
+### 📱 Responsive UI
+
+#### The interface is crafted for:
+
+- 📲 Mobile devices
+
+- 💻 Desktops & Laptops
+
+- 🧭 Smooth scrolling & auto-play reels
+
+---
+
+### 🧠 Future Enhancements
+
+- 🗨️ Real-time comments
+
+- 🔔 Notifications for likes/saves
+
+- 🧑‍🤝‍🧑 Follow creators
+
+- 🌍 Global explore feed
+
+---
+
 ## 🔐 Authentication Flow
 
 - Users log in using email & password
@@ -89,6 +145,16 @@ For major changes, please open an issue first to discuss what you would like to 
 - 🔗 LinkedIn : www.linkedin.com/in/saksham-srivastava-343088255
 - 🐙 GitHub : https://github.com/yaxxhsri7444
 
+---
+
 ## 📝 License
 
 - This project is licensed under the MIT License — feel free to use and modify it.
+
+---
+
+
+<p align="center"> Made with ❤️ by <b>Saksham Srivastava</b><br/> If you like this project, don’t forget to ⭐ it on GitHub! </p>
+
+
+---
